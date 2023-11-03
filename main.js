@@ -10,16 +10,30 @@ function generateBox(height, width) {
     generateRow.style.flexDirection = "row";
     for (let j = 0; j < width; j++) {
       const generateDiv = document.createElement("div");
-      generateDiv.id = "one";
-      generateDiv.innerText = "X";
+      generateDiv.className = "one";
+      // generateDiv.innerText = "X";
       generateRow.appendChild(generateDiv);
     }
     box.appendChild(generateRow);
   }
+  assignHover();
 }
 
-function main() {
-  return "Hi mom";
+generateBox(userHeight, userWidth);
+
+function assignHover() {
+  const divs = document.querySelectorAll(".one");
+  for (let x = 0; x < divs.length; x++) {
+    let divSelect = divs[x];
+    divSelect.addEventListener("mouseover", () => handleMouseOver(divSelect));
+    divSelect.addEventListener("mouseout", () => handleMouseOut(divSelect));
+  }
 }
 
-console.log(main());
+function handleMouseOver(elem) {
+  elem.style.backgroundColor = "black";
+}
+
+function handleMouseOut(elem) {
+  elem.style.backgroundColor = "white";
+}
