@@ -31,9 +31,9 @@ function assignHover() {
 }
 
 function handleMouseOver(elem) {
-  elem.style.backgroundColor = "black";
+  elem.style.backgroundColor = "red";
 }
 
 function handleMouseOut(elem) {
-  elem.style.backgroundColor = "white";
+  elem.style.backgroundColor = "pink";
 }
