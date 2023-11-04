@@ -11,6 +11,8 @@ function generateBox(height, width) {
     for (let j = 0; j < width; j++) {
       const generateDiv = document.createElement("div");
       generateDiv.className = "one";
+      generateDiv.style.height = sizeToStr(calculateDivSize(height));
+      generateDiv.style.width = sizeToStr(calculateDivSize(width));
       // generateDiv.innerText = "X";
       generateRow.appendChild(generateDiv);
     }
@@ -19,7 +21,15 @@ function generateBox(height, width) {
   assignHover();
 }
 
-generateBox(userHeight, userWidth);
+function calculateDivSize(num) {
+  const boxSize = 800;
+  const divSize = Math.floor((boxSize / num) - 2);
+  return divSize;
+}
+
+function sizeToStr(num) {
+  return num.toString() + "px";
+}
 
 function assignHover() {
   const divs = document.querySelectorAll(".one");
@@ -37,3 +47,5 @@ function handleMouseOver(elem) {
 function handleMouseOut(elem) {
   elem.style.backgroundColor = "pink";
 }
+
+generateBox(userHeight, userWidth);
