@@ -1,6 +1,9 @@
-let userHeight = 16;
-let userWidth = 16;
 const box = document.getElementById("box");
+const sub = document.getElementById("submit");
+let submitHeight = parseInt(document.getElementById("boxH").value);
+let submitWidth = parseInt(document.getElementById("boxW").value);
+sub.addEventListener("click", () => generateBox(submitHeight, submitWidth));
+
 function generateBox(height, width) {
   box.innerHTML = "";
   for (let i = 0; i < height; i++) {
@@ -13,7 +16,6 @@ function generateBox(height, width) {
       generateDiv.className = "one";
       generateDiv.style.height = sizeToStr(calculateDivSize(height));
       generateDiv.style.width = sizeToStr(calculateDivSize(width));
-      // generateDiv.innerText = "X";
       generateRow.appendChild(generateDiv);
     }
     box.appendChild(generateRow);
@@ -48,4 +50,6 @@ function handleMouseOut(elem) {
   elem.style.backgroundColor = "pink";
 }
 
-generateBox(userHeight, userWidth);
+function greaterThan100(num) {
+  return num > 100;
+}
