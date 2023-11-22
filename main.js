@@ -15,7 +15,8 @@ function generateBox(dimension) {
       newDiv.className = "one";
       newDiv.style.height = sizeToStr(calculateDivSize(dimension));
       newDiv.style.width = sizeToStr(calculateDivSize(dimension));
-      assignHover(newDiv);
+      newDiv.addEventListener("mouseover", () => handleMouseOver(newDiv));
+      newDiv.addEventListener("mouseout", () => handleMouseOut(newDiv));
       newRow.appendChild(newDiv);
     }
     box.appendChild(newRow);
@@ -31,12 +32,6 @@ function calculateDivSize(num) {
 function sizeToStr(num) {
   return num.toString() + "px";
 }
-
-function assignHover(div) {
-  div.addEventListener("mouseover", () => handleMouseOver(div));
-  div.addEventListener("mouseout", () => handleMouseOut(div));
-}
-
 
 function handleMouseOver(elem) {
   elem.style.backgroundColor = "red";
